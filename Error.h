@@ -3,6 +3,6 @@
 #ifndef ERROR
 #define ERROR
 
-#define ThrowError(error) (fprintf(stderr, "Error: %s", error))
+#define ThrowError(error) (fprintf(stderr, #error))
 
 #endif ERROR
