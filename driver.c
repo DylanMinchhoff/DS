@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
 
     StackNode* c = s->start;
     while(c != NULL) {
-        printf("%d\n", (int) c->data);
+        printf("%d\n", *(int*) c->data);
         c = c->next;
     }
     Stack_delete(s);
