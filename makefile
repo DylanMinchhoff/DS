@@ -1,10 +1,15 @@
+CFILES = Stack.c
+HFILES = Stack.h
 
 
-driver: headers.o driver.o
-	gcc driver.o headers.o -o driver
+driver: stack.o driver.o
+	gcc -g stack.o driver.o -o driver
 
-headers.o:
-	gcc -c stack.h -o headers.o
+stack.o: Stack.h Stack.c
+	gcc $(HFILES) $(CFILES) -c 
 
-driver.o:
-	gcc -c driver.c -o driver.o
+driver.o: driver.c
+	gcc driver.c -c -o driver.o
+
+clean:
+	rm -f *.o
