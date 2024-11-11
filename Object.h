@@ -3,4 +3,6 @@
 
 #define Object(type) struct ##type
 
+#define TOTYPE(type) *(#type*)
+
 #endif

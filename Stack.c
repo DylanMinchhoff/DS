@@ -29,7 +29,8 @@ void Stack_push(struct Stack* stack, void* item) {
 
 void* Stack_pop(struct Stack* stack) {
     if(stack->start == NULL) {
-        ThrowError("Cannot pop from empty stack");
+        ThrowError("Cannot pop from empty stack")
+        return NULL;
     }
     struct StackNode* top = stack->start;
     stack->start = stack->start->next;
