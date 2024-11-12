@@ -13,7 +13,7 @@ typedef struct List {
     void (*sort)(List*);
 } List;
 
-void* removeIndex(List* lsit, int index);
+void* removeIndex(List* list, int index);
 void* removeItem(List* list, void* item);
 void add(List*, void*);
 void insert(List*, int, void*);
