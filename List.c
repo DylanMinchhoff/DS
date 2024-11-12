@@ -49,8 +49,9 @@ void sort(List*, int (*sortFunction)(void*, void*)) {
 
 }
 
-int defaultSortFunction(void*, void*) {
-
+int defaultSortFunction(void* a, void* b) {
+    if(a == b) return 0;
+    return a > b ? 1 : -1;
 }
 
 void resizeList(List* list, int newCapacity) {

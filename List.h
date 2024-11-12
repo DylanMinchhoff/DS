@@ -20,9 +20,24 @@ void add(List* list, void*);
 void insert(List* list, int, void*);
 int find(List* list, void*);
 void* toArray(List* list);
+
+/**
+ * @param list - list to be sorted
+ * @param sortFunction - the function the list will be sorted using
+ * if sortFunction is left NULL the function will use the defaultSortFunction
+ */
 void sort(List* list, int (*sortFunction)(void*, void*));
 
-int defaultSortFunction(void*, void*);
+/**
+ * @param a - item compared
+ * @param b - item compared to a
+ * will return 1,0,-1
+ * 1  (a > b)
+ * 0  (a = b)
+ * -1 (a < b)
+ */
+int defaultSortFunction(void* a, void* b);
+
 void resizeList(List* list, int);
 
 List* List_init();
