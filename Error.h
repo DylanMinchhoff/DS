@@ -4,6 +4,6 @@
 #ifndef ERROR
 #define ERROR
 
-#define ThrowError(error) (fprintf(stderr, #error)); printf("\n");
+#define ThrowError(error) (fprintf(stderr, #error)); printf("\n"); exit(1);
 
 #endif
