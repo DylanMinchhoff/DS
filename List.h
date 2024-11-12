@@ -22,19 +22,19 @@ int find(List* list, void*);
 void* toArray(List* list);
 
 /**
- * @param list - list to be sorted
- * @param sortFunction - the function the list will be sorted using
- * if sortFunction is left NULL the function will use the defaultSortFunction
+ * @param list list to be sorted
+ * @param sortFunction the function the list will be sorted on,
+ * if sortFunction == NULL the function will use the defaultSortFunction
  */
 void sort(List* list, int (*sortFunction)(void*, void*));
 
 /**
- * @param a - item compared
- * @param b - item compared to a
+ * @param a item compared
+ * @param b item compared to a
  * will return 1,0,-1
- * 1  (a > b)
- * 0  (a = b)
- * -1 (a < b)
+ * @return 1   (a > b)
+ * @return 0   (a = b)
+ * @return -1  (a < b)
  */
 int defaultSortFunction(void* a, void* b);
 

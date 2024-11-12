@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include "List.h"
 #include <stddef.h>
 #include <stdio.h>
 
@@ -19,6 +20,7 @@ int main(int argc, char** argv) {
         c = c->next;
     }
     printf("StackCount %d\n", s->count);
+
     Stack_delete(s);
     return 0;
 }
