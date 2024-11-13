@@ -3,11 +3,13 @@
 ## Definitions:
 
 ```C
+// StackNode for data
 typedef struct StackNode {
     struct StackNode* next;
     void* data;
 } StackNode;
 
+// Stack struct
 typedef struct Stack{
     struct StackNode* start;
     int count;
@@ -16,11 +18,14 @@ typedef struct Stack{
     void* (*peek)(struct Stack*);
     void (*clear)(struct Stack*);
 } Stack;
+
+// Methods
 void Stack_push(struct Stack* stack, void* item);
 void* Stack_pop(struct Stack* stack);
 void* Stack_peek(struct Stack* stack);
 void Stack_clear(struct Stack* stack);
 
+// constructors and destructors
 struct Stack* Stack_init();
 void Stack_delete(struct Stack*);
 ```
@@ -29,6 +34,7 @@ void Stack_delete(struct Stack*);
 
 ### Stack_init()
 
+Creates an empty stack
 
 ## Destructors:
 
