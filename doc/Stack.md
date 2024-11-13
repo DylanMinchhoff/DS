@@ -32,9 +32,25 @@ void Stack_delete(struct Stack*);
 
 ## Destructors:
 
-
+### Stack_delete()
 
 ## Methods:
 
-## Prperties:
+### push
+- pushes an item to the stack
+
+### pop
+- removes the top item of the stack
+- if the stack is empty, the stack will return NULL
+
+### peek
+- returns the top element in the stack without popping the element
+
+### clear
+- clears the current stack
+
+## Properties:
+
+### count
+- the amount of items in the stack
 

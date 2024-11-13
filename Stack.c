@@ -3,7 +3,7 @@
 #include <stddef.h>
 
 Stack* Stack_init() {
-    struct Stack* stack = (struct Stack*) malloc(sizeof(struct Stack));
+    Stack* stack = (Stack*) malloc(sizeof(Stack));
     stack->start = NULL;
     stack->push = Stack_push;
     stack->pop = Stack_pop;
@@ -13,8 +13,8 @@ Stack* Stack_init() {
     return stack;
 }
 
-void Stack_push(struct Stack* stack, void* item) {
-    struct StackNode* newNode =  (struct StackNode*) malloc(sizeof(struct StackNode));
+void Stack_push(Stack* stack, void* item) {
+    StackNode* newNode =  (StackNode*) malloc(sizeof(StackNode));
     newNode->data = item;
     newNode->next = NULL;
     (stack->count)++;
@@ -27,12 +27,9 @@ void Stack_push(struct Stack* stack, void* item) {
     return;
 };
 
-void* Stack_pop(struct Stack* stack) {
-    if(stack->start == NULL) {
-        ThrowError("Cannot pop from empty stack")
-        return NULL;
-    }
-    struct StackNode* top = stack->start;
+void* Stack_pop(Stack* stack) {
+    if(stack->start == NULL) return NULL;
+    StackNode* top = stack->start;
     stack->start = stack->start->next;
     void* data = top->data;
     (stack->count)--;
@@ -40,11 +37,7 @@ void* Stack_pop(struct Stack* stack) {
     return data;
 }
 
-void* Stack_peek(struct Stack* stack) {
-    return stack->start->data;
-}
-
-void Stack_delete(struct Stack* stack) {
+void Stack_clear(Stack* stack) {
     StackNode* c = stack->start;
     while (c != NULL)
     {
@@ -52,6 +45,16 @@ void Stack_delete(struct Stack* stack) {
         free(c);
         c = tmp;
     }
+    stack->count = 0;
+}
+
+void* Stack_peek(Stack* stack) {
+    return stack->start->data;
+}
+
+void Stack_delete(Stack* stack) {
+    StackNode* c = stack->start;
+    Stack_clear(stack);
     free(stack);
     return;
 }
