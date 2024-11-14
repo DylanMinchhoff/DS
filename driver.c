@@ -1,9 +1,11 @@
 #include "Stack.h"
 #include "List.h"
+#include "CompareFunctions.h"
 #include <stddef.h>
+#include <stdbool.h>
 #include <stdio.h>
 
-int main(int argc, char** argv) {
+void StackTest() {
     Stack* s = Stack_init();
     printf("StackCount %d\n", s->count);
     // s->pop(s);
@@ -13,14 +15,15 @@ int main(int argc, char** argv) {
     s->push(s, (void*)320);
     s->push(s, (void*)90);
 
-
-    StackNode* c = s->start;
     while(s->count != 0) {
-        printf("item> %d: stack count> %d\n", (int*) s->pop(s), s->count);
-        c = c->next;
+        printf("item> %d: stack count> %d\n", *(int*) s->pop(s), s->count);
     }
     printf("StackCount %d\n", s->count);
 
     Stack_delete(s);
+}
+
+int main(int argc, char** argv) {
+    
     return 0;
 }

@@ -1,18 +1,22 @@
 #ifndef LIST
 #define LIST
 
+#define ARRAYLIST_INITIALSIZE 20
+#define ARRAYLIST_INCREASE 2
+#define ARRAYLIST_DECREASE 0.5
+
 typedef struct List {
     void** array;
     int count;
     int capacity;
-    void* (*removeIndex)(List*, int);
-    void* (*removeItem)(List*, void*);
-    void (*add)(List*, void*);
-    void (*insert)(List*, int, void*);
-    int (*find)(List*, void*);
-    void* (*toArray)(List*);
-    void (*sort)(List*);
-} List;
+    void* (*removeIndex)(struct List*, int);
+    void* (*removeItem)(struct List*, void*);
+    void (*add)(struct List*, void*);
+    void (*insert)(struct List*, int, void*);
+    int (*find)(struct List*, void*);
+    void* (*toArray)(struct List*);
+    void (*sort)(struct List*);
+}List;
 
 void* removeIndex(List* list, int index);
 void* removeItem(List* list, void* item);
@@ -27,16 +31,6 @@ void* toArray(List* list);
  * if sortFunction == NULL the function will use the defaultSortFunction
  */
 void sort(List* list, int (*sortFunction)(void*, void*));
-
-/**
- * @param a item compared
- * @param b item compared to a
- * will return 1,0,-1
- * @return 1   (a > b)
- * @return 0   (a = b)
- * @return -1  (a < b)
- */
-int defaultSortFunction(void* a, void* b);
 
 void resizeList(List* list, int);
 

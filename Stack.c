@@ -53,7 +53,6 @@ void* Stack_peek(Stack* stack) {
 }
 
 void Stack_delete(Stack* stack) {
-    StackNode* c = stack->start;
     Stack_clear(stack);
     free(stack);
     return;
